@@ -1,5 +1,5 @@
-resource "aws_security_group" "vpc_task" {
-  name        = "vpc_task"
+resource "aws_security_group" "mysql" {
+  name        = "mysql"
   description = "Allow TLS inbound traffic"
   vpc_id      = "${aws_vpc.main.id}"
 
@@ -13,8 +13,8 @@ resource "aws_security_group" "vpc_task" {
 
   ingress {
     description = "Allow ssh"
-    from_port   = 80
-    to_port     = 80
+    from_port   = 3306
+    to_port     = 3306
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
